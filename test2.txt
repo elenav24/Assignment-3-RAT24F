@@ -1,0 +1,21 @@
+@
+[*
+This function takes in two ints and uses a while loop to figure out
+how far apart these numbers are, without doing math to calculate it
+ *]
+integer lower, upper, temp;
+get(lower, upper);
+if (lower > upper)
+{
+    temp = upper;
+    upper = lower;
+    lower = temp;
+}
+fi
+temp = 0;
+while (lower < upper) {
+    lower = lower + 1;
+    temp = temp + 1;
+}
+put(temp);
+@

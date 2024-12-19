@@ -1,0 +1,49 @@
+@
+[* This file allows the user to create many psuedorandom numbers *]
+integer seed;
+integer prime;
+integer count;
+integer amount;
+integer num;
+boolean seeded;
+[* This will be used in determining the random number *]
+prime = 195092074914469;
+[* Determine if the user wants to use a seed, and get the seed if they do *]
+get(seeded);
+if (seeded == true) 
+{
+    get(seed);
+}
+else
+{
+    seed = 68391;
+}
+fi
+[* Order the numbers so the prime is the larger number than the seed *]
+if (seed > prime)
+{
+    amount = seed;
+    seed = prime;
+    prime = amount;
+}
+fi
+[* Get the initial amount of numbers for the program to generate (0 for none) *]
+get(amount);
+while (amount > 0)
+{
+    [* Generate the numbers *]
+    while (amount > 0)
+    {
+        num = prime / seed;
+        num = num * num;
+        prime = prime + amount * num;
+        put(num);
+        amount = amount - 1;
+    }
+    [* Get the next amount of numbers to generate *]
+    get(amount);
+}
+[* End of file, print the final prime and seed *]
+put(prime);
+put(seed);
+@
